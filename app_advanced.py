@@ -121,11 +121,15 @@ st.markdown('<p style="text-align: center; color: #666;">Smart Model Routing | R
 with st.sidebar:
     st.header("⚙️ Configuration")
     
-    # GCP Configuration
+        # GCP Configuration
     with st.expander("🔑 API Settings", expanded=True):
         project_id = st.text_input("GCP Project ID", value="prj-genai-poc-glob-5bcc")
-        api_key = st.text_input("Google AI API Key", type="password", 
-                               help="Your API key: AIzaSyAcEAJWY_qeIhd00w98u118FPjGc4XjRsw")
+        api_key = st.text_input(
+            "Google AI API Key", 
+            type="password",
+            placeholder="Enter your API key here",
+            help="🔒 Keep this private! Never share your API key."
+        )
         
         if st.button("🚀 Initialize Models", type="primary"):
             if api_key and project_id:
