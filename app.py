@@ -70,19 +70,7 @@ def initialize_gemini(api_key):
     """Initialize Gemini with API key"""
     try:
         genai.configure(api_key=api_key)
-        model = genai.GenerativeModel(
-            model_name='gemini-2.0-flash-exp',
-            system_instruction="""You are an intelligent AI meeting assistant. 
-            Analyze meeting transcripts and provide helpful, concise responses.
-            
-            Your capabilities:
-            - Answer questions based on meeting context
-            - Identify action items and decisions
-            - Provide summaries and insights
-            - Suggest next steps
-            
-            Be professional, concise, and helpful."""
-        )
+        model = genai.GenerativeModel('gemini-2.0-flash-exp')
         return model
     except Exception as e:
         st.error(f"Error initializing Gemini: {str(e)}")
